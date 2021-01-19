@@ -1,14 +1,14 @@
 #!/bin/bash
 
 cat <<EOF
-# ----------- Important -----------
-# Backup Database with RCLONE
-# Source: https://github.com/JuniYadi/backup-db-rclone
-# ---------------------------------
-# By: Juni Yadi
-# Update: 2020-01-19 13:53
-# License: MIT
-# ---------------------------------
+----------- Important -----------
+Backup Database with RCLONE
+Source: https://github.com/JuniYadi/backup-db-rclone
+---------------------------------
+By: Juni Yadi
+Update: 2020-01-19 13:53
+License: MIT
+---------------------------------
 EOF
 
 # Default Config Path
@@ -31,10 +31,12 @@ source $backup_config
 
 # Create Folder Backup
 if [ ! -d $HOME/backup ]; then
+    echo "Create Folder Backup: $HOME/backup"
     mkdir $HOME/backup
 fi
 
 # Move to Folder Backup
+echo "Move to Folder Backup: $HOME/backup"
 cd $HOME/backup
 
 # Generate File Backup Name With Date
@@ -67,6 +69,7 @@ do
     echo "------------------------------"
     echo "Copy File $filename_tar to $account_name"
     echo "PATH: $account_name/$domain/db/$filename_tar"
+    echo "------------------------------"
 
     rclone -v copy $filename_tar $x:$domain/db
 done

@@ -1,13 +1,25 @@
 - [Backup Database with rclone](#backup-database-with-rclone)
+  - [Feature](#feature)
   - [Tested](#tested)
   - [Install Instruction](#install-instruction)
   - [Command Install](#command-install)
   - [How to Use](#how-to-use)
+    - [Default Config](#default-config)
+    - [Custom Config Path](#custom-config-path)
   - [Crontab](#crontab)
 
 # Backup Database with rclone
 
 ![](output.png)
+
+## Feature
+- Rclone as Remote Storage
+- Multiple Rclone Account Upload
+- Auto Delete Files XX Days
+- Auto Compress File SQL
+- Auto Delete Local Files or Not
+- Dynamic Config
+- Support Multiple Config
 
 ## Tested
 | Name   | Version      |
@@ -30,14 +42,26 @@ wget -O backup.sh https://raw.githubusercontent.com/JuniYadi/backup-db-rclone/ma
 wget -O .backup-rclone https://raw.githubusercontent.com/JuniYadi/backup-db-rclone/main/.backup-rclone.example
 ```
 
+**For Update Script, Just Download `backup.sh` files only**
+
 ## How to Use
+
+### Default Config
 
 ```
 bash backup.sh
 ```
 
+### Custom Config Path
+
+**If you want use custom config file, you can reference config in command, example:**
+
+```
+bash backup.sh /path/file/backup-rclone
+```
+
 ## Crontab
 
 ```
-0 0 * * * bash /home/ubuntu/backup.sh
+0 0 * * * bash /path/file/backup.sh
 ```

@@ -11,8 +11,13 @@ cat <<EOF
 # ---------------------------------
 EOF
 
-# Config Path
+# Default Config Path
 backup_config="$HOME/.backup-rclone.conf"
+
+# Custom Config Path
+if [ $1 ]; then
+    backup_config=$1
+fi
 
 # Exit If Config Not Found
 if [ ! -f $backup_config ]; then
@@ -59,7 +64,7 @@ if [ $rclone_auto_delete_account ]; then
         account_name=$(echo $i | tr a-z A-Z)
 
         echo "------------------------------"
-        echo "Delete Old Files in account $account_name"
+        echo "Delete Old Files in account: $account_name"
 
         rclone -v delete $i:$domain/db --min-age $rclone_auto_delete_time
     done
@@ -76,7 +81,7 @@ do
     account_name=$(echo $x | tr a-z A-Z)
 
     echo "------------------------------"
-    echo "Copy File $filename to $account_name"
+    echo "Copy File $filename_tar to $account_name"
     echo "PATH: $account_name/$domain/db/$filename_tar"
 
     rclone -v copy $filename_tar $x:$domain/db

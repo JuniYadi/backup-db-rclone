@@ -24,9 +24,8 @@
 ## Command Install
 
 ```
-wget https://raw.githubusercontent.com/JuniYadi/backup-db-rclone/main/backup.sh
-wget https://raw.githubusercontent.com/JuniYadi/backup-db-rclone/main/.backup-rclone.example
-mv .backup-rclone.example .backup-rclone
+wget -O backup.sh https://raw.githubusercontent.com/JuniYadi/backup-db-rclone/main/backup.sh
+wget -O .backup-rclone https://raw.githubusercontent.com/JuniYadi/backup-db-rclone/main/.backup-rclone.example
 ```
 
 ## How to Use

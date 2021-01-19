@@ -1,0 +1,11 @@
+# ----------- Important -----------
+#       Config Without Space
+# ---------------------------------
+
+# Domain
+domain=johndoe.test
+
+# DB Detail
+db_user=iniuserdb
+db_pass=inipassdb
+db_name=ininamadb

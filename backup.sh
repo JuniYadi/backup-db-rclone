@@ -12,7 +12,7 @@ cat <<EOF
 EOF
 
 # Default Config Path
-backup_config="$HOME/.backup-rclone.conf"
+backup_config="$HOME/.backup-rclone"
 
 # Custom Config Path
 if [ $1 ]; then

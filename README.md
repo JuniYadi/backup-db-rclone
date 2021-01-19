@@ -7,6 +7,8 @@
 
 # Backup Database with rclone
 
+![](output.png)
+
 ## Tested
 | Name   | Version      |
 |--------|--------------|

@@ -6,7 +6,7 @@ cat <<EOF
 # Source: https://github.com/JuniYadi/backup-db-rclone
 # ---------------------------------
 # By: Juni Yadi
-# Update: 2020-01-19 13:06
+# Update: 2020-01-19 13:53
 # License: MIT
 # ---------------------------------
 EOF
@@ -55,6 +55,21 @@ echo "Compress File SQL: $filename_sql to $filename_tar"
 
 tar cfz $filename_tar $filename_sql
 
+# ----------- Rclone Copy -----------
+# Start Backup File with Rclone Scripts
+# -----------------------------------
+
+for x in $(echo $rclone_account | sed "s/,/ /g")
+do
+    # Set Name of Account
+    account_name=$(echo $x | tr a-z A-Z)
+
+    echo "------------------------------"
+    echo "Copy File $filename_tar to $account_name"
+    echo "PATH: $account_name/$domain/db/$filename_tar"
+
+    rclone -v copy $filename_tar $x:$domain/db
+done
 
 # ----------- Rclone Delete -----------
 # Start Delete Old Files X Days Scripts
@@ -76,30 +91,20 @@ if [ $rclone_auto_delete_account ]; then
 
 fi
 
-# ----------- Rclone Copy -----------
-# Start Backup File with Rclone Scripts
-# -----------------------------------
-
-for x in $(echo $rclone_account | sed "s/,/ /g")
-do
-    # Set Name of Account
-    account_name=$(echo $x | tr a-z A-Z)
-
-    echo "------------------------------"
-    echo "Copy File $filename_tar to $account_name"
-    echo "PATH: $account_name/$domain/db/$filename_tar"
-
-    rclone -v copy $filename_tar $x:$domain/db
-done
-
 # ----------- Delete Files -----------
 #       Start Delete Local Files
 # ------------------------------------
 
-echo "------------------------------"
-echo "Delete SQL File: $filename_sql"
-rm -rf $filename_sql
+if [ $delete_local_file_sql == "yes" ]; then
+    echo "------------------------------"
+    echo "Delete SQL File: $filename_sql"
+    rm -rf $filename_sql
+fi
+
+if [ $delete_local_file_tar == "yes" ]; then
+    echo "------------------------------"
+    echo "Delete TAR File: $filename_tar"
+    rm -rf $filename_tar
+fi
 
 echo "------------------------------"
-echo "Delete TAR File: $filename_tar"
-rm -rf $filename_tar

@@ -20,3 +20,7 @@ rclone_auto_delete_time=5d
 # Rclone Account Config Auto Delete - Separate With Comma
 # example: account1,account2
 rclone_auto_delete_account=account1,account2
+
+# Delete Local Files
+delete_local_file_sql=yes
+delete_local_file_tar=yes

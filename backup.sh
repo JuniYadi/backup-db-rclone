@@ -6,7 +6,7 @@ Backup Database with RCLONE
 Source: https://github.com/JuniYadi/backup-db-rclone
 ---------------------------------
 By: Juni Yadi
-Update: 2020-01-19 13:53
+Update: 2020-01-19 14:14
 License: MIT
 ---------------------------------
 EOF
@@ -49,7 +49,8 @@ filename_tar="$filename.tar.gz"
 echo "------------------------------"
 echo "Backup Database: $filename_sql"
 
-mysqldump --no-tablespaces --user=$db_user --password=$db_pass $db_name > $filename_sql
+# MySQL Dump With Secure Password Inline
+mysqldump --defaults-extra-file=<( echo $'[client]\npassword='"$db_pass" ) --no-tablespaces --user=$db_user $db_name > $filename_sql
 
 # Compress File
 echo "------------------------------"

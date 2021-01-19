@@ -9,3 +9,14 @@ domain=johndoe.test
 db_user=iniuserdb
 db_pass=inipassdb
 db_name=ininamadb
+
+# Rclone Account Config - Separate With Comma
+# example: account1,account2
+rclone_account=account1,account2
+
+# Rclone Auto Delete Files X Days
+rclone_auto_delete_time=5d
+
+# Rclone Account Config Auto Delete - Separate With Comma
+# example: account1,account2
+rclone_auto_delete_account=account1,account2

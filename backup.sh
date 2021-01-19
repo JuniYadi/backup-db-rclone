@@ -29,6 +29,11 @@ fi
 # Load all variable from config path
 source $backup_config
 
+# Create Folder Backup
+if [ ! -d $HOME/backup ]; then
+    mkdir $HOME/backup
+fi
+
 # Move to Folder Backup
 cd $HOME/backup
 

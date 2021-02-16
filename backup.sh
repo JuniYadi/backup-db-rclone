@@ -6,7 +6,7 @@ Backup Database with RCLONE
 Source: https://github.com/JuniYadi/backup-db-rclone
 ---------------------------------
 By: Juni Yadi
-Update: 2020-01-19 14:14
+Update: 2020-02-17 04:04
 License: MIT
 ---------------------------------
 EOF
@@ -90,7 +90,7 @@ if [ $rclone_auto_delete_account ]; then
         echo "------------------------------"
         echo "Delete Old Files in account: $account_name"
 
-        rclone -v delete $i:$domain/db --min-age $rclone_auto_delete_time
+        rclone -v delete $i:$domain/db --min-age $rclone_auto_delete_time --drive-use-trash=false
     done
 
 fi

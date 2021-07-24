@@ -2,20 +2,24 @@
 #       Config Without Space
 # ---------------------------------
 
-# Domain
+# Domain Folder
+# If You Using S3, This will be Bucket Name
 domain=johndoe.test
 
 # DB Detail
-db_user=iniuserdb
-db_pass=inipassdb
-db_name=ininamadb
+db_host=127.0.0.1
+db_port=3306
+db_user=username
+db_pass=password
+db_name=dbname
+db_opts="--no-tablespaces --set-gtid-purged=OFF --column-statistics=0"
 
 # Rclone Account Config - Separate With Comma
 # example: account1,account2
 rclone_account=account1,account2
 
 # Rclone Auto Delete Files X Days
-rclone_auto_delete_time=5d
+rclone_auto_delete_time=30d
 
 # Rclone Account Config Auto Delete - Separate With Comma
 # example: account1,account2

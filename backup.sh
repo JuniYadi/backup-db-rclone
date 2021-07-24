@@ -50,7 +50,7 @@ echo "------------------------------"
 echo "Backup Database: $filename_sql"
 
 # MySQL Dump With Secure Password Inline
-mysqldump --defaults-extra-file=<( echo $'[client]\npassword='"$db_pass" ) --no-tablespaces --user=$db_user $db_name > $filename_sql
+mysqldump --defaults-extra-file=<( echo $'[client]\npassword='"$db_pass" ) --no-tablespaces $db_opts -h $db_host --user=$db_user $db_name > $filename_sql
 
 # Compress File
 echo "------------------------------"

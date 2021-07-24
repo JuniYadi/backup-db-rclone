@@ -1,6 +1,9 @@
 - [Backup Database with rclone](#backup-database-with-rclone)
   - [Feature](#feature)
   - [Tested](#tested)
+  - [Install MySQL Client](#install-mysql-client)
+  - [Install RClone](#install-rclone)
+    - [Create RClone Config](#create-rclone-config)
   - [Install Instruction](#install-instruction)
   - [Command Install](#command-install)
   - [How to Use](#how-to-use)
@@ -27,6 +30,26 @@
 | OS     | Ubuntu 20.04 |
 | MySQL  | 8.0          |
 | rclone | 1.53.3       |
+
+## Install MySQL Client
+
+```
+sudo apt install mysql-client
+```
+
+## Install RClone
+
+```
+curl https://rclone.org/install.sh | sudo bash
+```
+
+### Create RClone Config
+
+```
+rclone config
+```
+
+Ref: https://rclone.org/commands/rclone_config/
 
 ## Install Instruction
 

@@ -6,7 +6,7 @@ Backup Database with RCLONE
 Source: https://github.com/JuniYadi/backup-db-rclone
 ---------------------------------
 By: Juni Yadi
-Update: 2020-07-25 01:40
+Update: 2020-08-26 15:18
 License: MIT
 ---------------------------------
 EOF

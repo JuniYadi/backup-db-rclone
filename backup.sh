@@ -48,15 +48,21 @@ filename_tar="$filename.tar.gz"
 # Dump Database
 echo "------------------------------"
 echo "Backup Database: $filename_sql"
+echo "Backup Process Start at $(date '+%Y/%m/%d %H:%M:%S')"
 
 # MySQL Dump With Secure Password Inline
 mysqldump --defaults-extra-file=<( echo $'[client]\npassword='"$db_pass" ) $db_opts --host=$db_host --port=$db_port --user=$db_user $db_name > $filename_sql
 
+echo "Backup Process Complete at $(date '+%Y/%m/%d %H:%M:%S')"
+
 # Compress File
 echo "------------------------------"
 echo "Compress File SQL: $filename_sql to $filename_tar"
+echo "Compress File Process Start at $(date '+%Y/%m/%d %H:%M:%S')"
 
 tar cfz $filename_tar $filename_sql
+
+echo "Compress File Complete at $(date '+%Y/%m/%d %H:%M:%S')"
 
 # ----------- Rclone Copy -----------
 # Start Backup File with Rclone Scripts
